@@ -1,0 +1,51 @@
+plugins {
+    id 'java'
+    id 'io.qameta.allure' version '2.12.0'
+}
+
+java {
+    // Si tienes esta sección, asegúrate que sea 17 (o >= 11)
+    sourceCompatibility = '17'
+    targetCompatibility = '17'
+}
+
+group = 'com.abstract'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // JUnit 5: Contiene las anotaciones y clases para crear los tests
+    implementation 'org.junit.jupiter:junit-jupiter-api:5.12.2'
+    // Motor JUnit 5: Permite ejecutar los tests de JUnit 5
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.12.2'
+    // JUnit 5: Permite tener los Hooks absolutos entre otras funcionalidades
+    testImplementation 'org.junit.platform:junit-platform-launcher:1.12.2'
+    // Selenium: Contiene las clases para controlar el navegador
+    implementation 'org.seleniumhq.selenium:selenium-java:4.32.0'
+    // WebDriverManager: Permite disponibilizar automaticamente el navegador
+    implementation 'io.github.bonigarcia:webdrivermanager:6.1.0'
+    // Allure para JUnit 5: Permite generar reportes de los tests
+    testImplementation 'io.qameta.allure:allure-junit5:2.29.1'
+    // Allure Commons: Permite utilizar anotaciones tipo @Attachment, etc.
+    implementation 'io.qameta.allure:allure-java-commons:2.29.1'
+    // AspectJ: Permite la lectura de los steps allure por fuera de los tests
+    runtimeOnly 'org.aspectj:aspectjweaver:1.9.24'
+    // Jackson: Permite serializar y deserializar objetos a JSON
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.19.0'
+    // OpenCSV para manipulación de archivos CSV
+    implementation 'com.opencsv:opencsv:5.9'
+}
+
+allure {
+    version = '2.25.0'
+}
+
+tasks.register('Tests', Test) {
+    systemProperties System.getProperties()
+    def tags = systemProperties.get('tags')
+    def tag = (tags == null || tags == '') ? "!skip" : tags + " & !skip"
+    useJUnitPlatform() { includeTags(tag) }
+}

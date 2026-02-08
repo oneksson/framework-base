@@ -1,0 +1,42 @@
+[
+  {
+    "username": "testuser176257",
+    "nombre": "testuser176257",
+    "apellido": "abstract",
+    "pass": "Inicio01!"
+  },
+  {
+    "username": "testuser035291",
+    "nombre": "testuser035291",
+    "apellido": "abstract",
+    "pass": "Inicio01!"
+
+  },
+  {
+    "username": "admin",
+    "nombre": "admin",
+    "apellido": "admin",
+    "pass": "Inicio01!"
+  },
+  {
+    "username": "testuser13",
+    "nombre": "testuser",
+    "apellido": "abstract",
+    "pass": "Passw0rd!"
+  },
+  {
+    "username": "testuser14",
+    "nombre": "Alfonso26",
+    "apellido": "Cuadrado91",
+    "pass": "Passw0rd!"
+  },
+  {
+    "username": "testuser146426",
+    "nombre": "testuser146426",
+    "apellido": "abstract",
+    "pass": "Inicio01!"
+  }
+
+
+
+]

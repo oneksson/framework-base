@@ -1,0 +1,24 @@
+// Variables de DABRA
+asignarPropiedad("appUrl", "urlweeeeb")
+asignarPropiedad("username", "prueba")
+asignarPropiedad("password", "password")
+asignarPropiedad("intentosLogin", "3")
+// Variables del browser
+asignarPropiedad("headless", "true")
+asignarPropiedad("explicitWait", "10")
+asignarPropiedad("implicitWait", "10")
+asignarPropiedad("pageLoadWait", "10")
+asignarPropiedad("webdriver.chrome.verboseLogging", "true")
+asignarPropiedad("webdriver.chrome.logfile", "/tmp/chromedriver.log")
+// Variables de JUnit 5
+asignarPropiedad('junit.jupiter.extensions.autodetection.enabled', "true") // Permite que los Hooks se agrupen en el reporte (setUp y tearDown)
+asignarPropiedad('junit.jupiter.execution.timeout.default', "50") // Timeout de cada test
+asignarPropiedad('junit.jupiter.execution.timeout.thread.mode.default', "SEPARATE_THREAD") // Esto hace que al lanzar timeout, se frene completamente la ejecución del test
+// Variables del REST Client
+asignarPropiedad("restClientUrlAuth", "https://api.nexus.dev.abstractsolutions.com.ar/nexus-auth")
+asignarPropiedad("restClientUrl", "https://api.tms.dev.abstractsolutions.com.ar/tms-core")
+asignarPropiedad("restClientTimeout", "10")
+
+static def asignarPropiedad(String key, String value) {
+    System.setProperty(key, value)
+}
